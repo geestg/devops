@@ -1,0 +1,18 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches: [ "main" ]  # ubah ke "master" jika repositori kamu pakai itu
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout kode dari repo
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: docker build -t glen-python-app .
